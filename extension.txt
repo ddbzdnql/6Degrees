@@ -1,0 +1,57 @@
+1) The problem we solved:
+Given a twitter network, we can count the number of strongly connected
+groups in it and output their sizes.
+
+2) How we solved it:
+i. We build a graph representing the twitter network.
+ii. We perform DFS on the graph and push nodes into a stack 'finished'.
+iii. We get the transpose of the graph.
+iv. We perform DFS on the transpose and do statistics (including counting 
+the number of strongly connected groups and computing their sizes).
+v. We output the result.
+
+3) How we tested it:
+We use several small files and compare the results we computed by hand with
+the program output.
+For example, the content of one file we used for test is:
+1 2 1341100972 MT
+8 6 1341101596 MT
+4 1 1341101208 RT
+11 10 1341101750 RE
+1 5 1341101251 MT
+10 11 1341101750 MT
+5 1 1341101263 RT
+6 9 1341101732 RT
+1 4 1341101192 RT
+14 15 1341101892 MT
+3 1 1341101183 MT
+7 6 1341101523 RE
+6 7 1341101523 MT
+2 1 1341100972 RE
+13 12 1341101861 MT
+6 8 1341101523 MT
+12 13 1341101834 MT
+9 6 1341101732 MT
+1 3 1341101181 RT
+15 16 1341102030 MT
+Computing by hand, we find that there are 3 groups of size 1, 2 groups of 
+size 2, 1 group of size 4 and 1 group of size 5. This result matches the
+program output:
+size of strongly connected group   # strongly connected group
+                               1                            3
+                               2                            2
+                               4                            1
+                               5                            1
+
+4) How the grader should run our program:
+./extension <filename>
+For example, if the filename is small.tsv, then we type:
+./extension small.tsv
+
+5) Download link:
+http://snap.stanford.edu/data/higgs-twitter.html
+Download the last file (higgs-activity_time.txt.gz) under section Files.
+No preprocessing to the data set is performed.
+
+6) A smaller version of the graph:
+small.tsv
